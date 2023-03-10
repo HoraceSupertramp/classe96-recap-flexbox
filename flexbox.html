@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="it-IT">
     <head>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -50,18 +50,15 @@
             </section>
             <section class="grid">
                 <h2>Ingrigliare cose</h2>
-                <p class="badge">A farselo tornare</p>
-                <p class="badge bad">NON GOOD</p>
-                <div class="flex-container justify">
-                    <div class="flex-item salmon">Sono un figlio flex</div>
-                    <div class="flex-item salmon">Sono un figlio flex</div>
-                    <div class="flex-item salmon">Sono un figlio flex</div>
-                    <div class="flex-item salmon">Sono un figlio flex</div>
-                    <div class="flex-item salmon">Sono un figlio flex</div>
-                    <div class="flex-item salmon">Sono un figlio flex</div>
-                </div>
-                <p class="badge">A farselo tornare v2</p>
-                <p class="badge bad">NON GOOD</p>
+                <p class="badge bad">Con gap + width all'incirca</p>
+                <!-- Con questo approccio diventa difficile controllare contemporaneamente -->
+                <!-- lo spazio verticale e orizzontale tra i figli flex. -->
+                <!-- Inoltre... ci rimane quello spazio in fondo a destra! -->
+                <!-- Accade perché non calcoliamo esattamente lo spazio che deve occupare ogni -->
+                <!-- figlio flex. Un fix che può migliorare è impostare flex-grow: 1; -->
+                <!-- (che fa occupare ai figli flex lo spazio mancante) ma poi, se la riga -->
+                <!-- più in basso della griglia non è riempita tutta di figli... il patatrack -->
+                <!-- provare per credere! -->
                 <div class="flex-container grow">
                     <div class="flex-item salmon">Sono un figlio flex</div>
                     <div class="flex-item salmon">Sono un figlio flex</div>
@@ -70,8 +67,12 @@
                     <div class="flex-item salmon">Sono un figlio flex</div>
                     <div class="flex-item salmon">Sono un figlio flex</div>
                 </div>
-                <p class="badge">Con gap + calcoli precisi</p>
-                <p class="badge good">GOOD</p>
+                <p class="badge good">Con gap, width, calc</p>
+                <!-- Che sembra difficile ma non è:
+                    .flex-item {
+                        width: calc((100% -  gap * (numeroDiColonne - 1)) / numeroDiColonne);
+                    }
+                -->
                 <div class="flex-container gap">
                     <div class="flex-item salmon">Sono un figlio flex</div>
                     <div class="flex-item salmon">Sono un figlio flex</div>
@@ -80,8 +81,18 @@
                     <div class="flex-item salmon">Sono un figlio flex</div>
                     <div class="flex-item salmon">Sono un figlio flex</div>
                 </div>
-                <p class="badge">Come fa bootstrap (con il padding)</p>
-                <p class="badge good">GOOD</p>
+                <p class="badge good">Come fa bootstrap (con il padding)</p>
+                <!-- ADVANCED -->
+                <!-- Notare la presenza di un ulteriore <div class="content"> in ogni figlio flex, che fa da -->
+                <!-- elemento radice per i suoi contenuti. Poiché, con questa tecnica, abbiamo già "sprecato" -->
+                <!-- la regola CSS "padding" per creare separazione tra un figlio flex e l'altro, siamo costretti -->
+                <!-- ad introdurre questo <div>, è l'unico modo per creare dello spazio interno ad ogni figlio -->
+                <!-- flex. La sua presenza non è molto semantica (perché è un <div> che ha un ruolo -->
+                <!-- soprattutto di layout). -->
+
+                <!-- La separazione tra i figli flex ed i bordi del contenitore flex, creata dal padding  -->
+                <!-- introdotto sopra, può essere di fatto annullata con un trick: si imposta un margine -->
+                <!-- negativo al contenitore flex pari a -padding). -->
                 <div class="flex-container bootstrap">
                     <div class="flex-item">
                         <div class="content salmon">Sono un figlio flex</div>

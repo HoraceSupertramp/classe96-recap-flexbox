@@ -50,23 +50,21 @@ section > p {
 }
 
 .badge {
-    text-transform: uppercase;
     display: inline-block;
     padding: 0.2em 0.4em;
     background: #eeeeee;
     font-weight: bold;
-    font-size: 0.8em;
     border-radius: 4px;
 }
 
 .badge.bad {
-    color: red;
+    color: #ad3a09;
     background: #ffe0e0;
 }
 
 .badge.good {
-    color: green;
-    background: #acffac;
+    color: #0f630f;
+    background: #d6efd6;
 }
 
 /* Display */
@@ -121,8 +119,16 @@ section.horizontal-align > div:nth-child(2) {
     padding: 2em 1.8em;
 }
 
+section.horizontal-align > div:nth-child(2) {
+    padding: 2em 1.8em;
+}
+
+section.horizontal-align > .clear {
+    clear: left;
+}
+
 .clearfix::after {
-    content: '';
+    /* content: ''; */
     clear: both;
     display: block;
 }
@@ -209,8 +215,11 @@ section.grid .flex-container.gap {
     gap: 1em;
 }
 
+/*
+    width: calc((100% -  gap * (numeroDiColonne - 1)) / numeroDiColonne);
+*/
 section.grid .flex-container.gap .flex-item {
-    width: calc((100% - 2em) / 3);
+    width: calc((100% - (1em * 2)) / 3);
 }
 
 section.grid .flex-container.justify {
@@ -228,12 +237,17 @@ section.grid .flex-container.grow {
 
 section.grid .flex-container.grow .flex-item {
     width: 32%;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+}
+
+section.grid .flex-item:last-child {
+    display: none;
+    /* flex-grow: 1; */
 }
 
 section.grid .flex-container.bootstrap {
-    /* margin: -.5em; */
-    /* background: transparent; */
+    margin: -.5em;
+    background: transparent;
     /* border: 0; */
 }
 
