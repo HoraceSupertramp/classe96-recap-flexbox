@@ -213,6 +213,15 @@ section.grid .flex-container.gap .flex-item {
     width: calc((100% - 2em) / 3);
 }
 
+section.grid .flex-container.justify {
+    justify-content: space-between;
+}
+
+section.grid .flex-container.justify .flex-item {
+    width: 32%;
+    margin-bottom: 1em;
+}
+
 section.grid .flex-container.grow {
     gap: 1em;
 }
