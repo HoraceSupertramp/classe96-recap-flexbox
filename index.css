@@ -1,0 +1,235 @@
+
+/* Common */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #f8f8f8;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2em 2.8em;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+section {
+    margin-bottom: 2em;
+}
+
+section {
+    background: #fff;
+    padding: 1em 1.2em;
+    border-radius: 5px;
+    margin-bottom: 1.4em;
+    border: 1px solid #f3f3f3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
+}
+
+.salmon {
+    background: salmon;
+    border: dotted 1px black;
+}
+
+section > h2 {
+    margin-top: 0;
+    color: #666666;
+    font-size: 1.2em;
+}
+
+section > p {
+    margin-top: 0;
+}
+
+.badge {
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.2em 0.4em;
+    background: #eeeeee;
+    font-weight: bold;
+    font-size: 0.8em;
+    border-radius: 4px;
+}
+
+.badge.bad {
+    color: red;
+    background: #ffe0e0;
+}
+
+.badge.good {
+    color: green;
+    background: #acffac;
+}
+
+/* Display */
+
+section.inline span.target {
+    /* font-size: 2em; */
+    margin: 10px; /* Non funzionano i margini verticali */
+    width: 300px; /* Non funzionano le dimensioni */
+    height: 300px; /* Non funzionano le dimensioni */
+}
+
+section.inline-block button {
+    margin: 10px;
+    width: 300px;
+}
+
+/* Float */
+
+section.float .left,
+section.float .right {
+    height: 164px;
+    width: 164px;
+    background-image: url(image.png);
+    background-size: cover;
+    color: #fff;
+    text-shadow: 0 0 10px black;
+}
+
+section.float .left {
+    float: left;
+    margin-right: 1em;
+}
+
+section.float .right {
+    float: right;
+    margin-left: 1em;
+}
+
+section.horizontal-align > .float {
+    padding: 1.4em 1.8em;
+    margin-right: 1em;
+    float: left;
+    width: calc(100% / 3 - 1em);
+}
+
+section.horizontal-align > .clear-both {
+    clear: both;
+    margin: 0;
+}
+
+section.horizontal-align > div:nth-child(2) {
+    padding: 2em 1.8em;
+}
+
+.clearfix::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/* Flexbox */
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+    background: #b7d4d9;
+    position: relative;
+    border: dotted 1px black;
+}
+
+.flex-item {
+    padding: .2em .4em;
+}
+
+section.flex-direction .flex-container::after {
+    content: 'Sono il flex container';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: .2em .4em;
+    color: #5b5b5b;
+}
+
+section.flex-direction .flex-item:nth-child(1) {
+    width: 150px;
+    height: 40px;
+}
+
+section.flex-direction .flex-item:nth-child(2) {
+    width: 180px;
+    height: 80px;
+}
+
+section.flex-direction .flex-item:nth-child(3) {
+    width: 200px;
+    height: 60px;
+}
+
+section.flex-direction .row {
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+section.flex-direction .column {
+    flex-direction: column;
+    height: 230px;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+section.justify .flex-container {
+    justify-content: center;
+}
+
+section.justify .flex-item {
+    /* width: calc(100% / 3); */
+    /* flex-basis: calc(100% / 3); */
+}
+
+section.flex-grow .flex-item {
+    /* flex-grow: 1; */
+}
+
+section.flex-shrink .flex-container {
+    flex-wrap: nowrap;
+}
+
+section.flex-shrink .flex-item {
+    /* flex-shrink: 0; */
+    width: 38%;
+    /* width: calc(100% / 3); */
+}
+
+section.grid .flex-container.gap {
+    gap: 1em;
+}
+
+section.grid .flex-container.gap .flex-item {
+    width: calc((100% - 2em) / 3);
+}
+
+section.grid .flex-container.grow {
+    gap: 1em;
+}
+
+section.grid .flex-container.grow .flex-item {
+    width: 32%;
+    flex-grow: 1;
+}
+
+section.grid .flex-container.bootstrap {
+    /* margin: -.5em; */
+    /* background: transparent; */
+    /* border: 0; */
+}
+
+section.grid .flex-container.bootstrap .flex-item {
+    width: calc(100% / 3);
+    padding: .5em;
+}
+
+section.grid .flex-container.bootstrap .content {
+    padding: 1em 1.4em 3em;
+}
