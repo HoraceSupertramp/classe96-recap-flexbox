@@ -223,7 +223,7 @@ section.grid .flex-container.gap {
 }
 
 /*
-    width: calc((100% -  gap * (numeroDiColonne - 1)) / numeroDiColonne);
+    width: calc((100% -  gapDelPadre * (numeroDiColonneGriglia - 1)) / numeroDiColonneGriglia);
 */
 section.grid .flex-container.gap .flex-item {
     width: calc((100% - (1em * 2)) / 3);
